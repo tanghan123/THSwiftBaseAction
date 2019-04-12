@@ -306,4 +306,78 @@ for char in word.reversed() {
 arr8.shuffle()
 print(arr8)
 
+//将数组随机排序
 print(arr8.shuffled())
+
+//根据特定条件给数组重新排序， 并且返回不满足条件的元素总个数
+print(arr8.partition { $0 < 5})
+print(arr8)
+
+// 交换指定索引的值
+arr8.swapAt(3, 5)
+print(arr8)
+
+//MARK: 分裂和连接元素
+print("分裂和连接元素")
+
+let line = "BLANCHE: I don't want realism. I want magic!"
+// 根据应该拆分的元素分割集合，返回数组
+let arr9 = line.split(separator: " ")
+print(arr9)
+
+// 根据指定分割次数maxSplits， 以及分割元素分割集合， omittingEmptySubsequences == true 过滤空的元素，返回非空数组
+print(line.split(separator: " ", maxSplits: 3, omittingEmptySubsequences: false))
+
+// 分割字符串
+print(line.split(maxSplits: 2, omittingEmptySubsequences: true, whereSeparator: { str -> Bool in
+    return str == " "
+}))
+
+// 返回数组的元素
+for str in arr9.joined() {
+    print(str)
+}
+
+// 使用给定元素连接集合
+print(arr9.joined(separator: " "))
+
+// MARK: 比较数组
+
+let arr10 = [3 , 4 , 5]
+let arr11 = [3 , 4 , 5]
+let arr12 = [1 , 2 , 3]
+let arr13 = [4 , 3 , 5]
+
+print(arr10 == arr13)
+print(arr11 != arr12)
+
+// 判断是否相等
+print(arr11.elementsEqual(arr13))
+
+// 使用给定条件是否满足
+print(arr11.elementsEqual(arr10, by: { i, value -> Bool in
+    print(" i = \(i) , value= \(value)")
+    return i == value
+}))
+
+// 判断2个集合的初始元素是否相等
+print(arr11.starts(with: arr12))
+
+// 是否满足给定条件
+print(arr11.starts(with: arr13, by: { i, value -> Bool in
+    print("i \(i) ,value \(value)")
+    return i == value
+}))
+
+//
+print(arr10.lexicographicallyPrecedes(arr11))
+
+print(arr13.lexicographicallyPrecedes(arr11, by: { (i, value) -> Bool in
+    print("i \(i) value \(value)")
+    return i == value
+}))
+
+// MARK: 操作指数
+
+var  = <#value#>
+
