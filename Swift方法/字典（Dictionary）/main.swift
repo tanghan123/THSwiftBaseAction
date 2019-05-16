@@ -200,7 +200,7 @@ let compactDic = dic6.compactMapValues { (value) -> Any? in
 print("compactDic \(compactDic)")
 
 //返回一个数组，其中包含使用此序列的每个元素调用给定转换的连接结果。
-let flats = dic6.flatMap { (item) -> Any? in
+let flats = dic6.compactMap { (item) -> Any? in
     return item.value
 }
 print("flats \(flats)")
